@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+   db:
+     build: "./ops-exercise/db/"
+     container_name: db-ruven
+     restart: always
+
+   ruven:
+     depends_on:
+       - db
+     build: "./ops-exercise"
+     container_name: app-ruven
+     ports:
+       - "3000:3000"
+     restart: always
+
